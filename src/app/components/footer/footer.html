@@ -1,0 +1,67 @@
+<!-- footer.html -->
+<footer class="bgDark py-8 sm:py-12 lg:py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-8 sm:mb-12">
+            <!-- Información Personal -->
+            <div class="sm:col-span-2 text-center sm:text-left">
+                <h3 class="text-2xl sm:text-3xl font-bold mb-2 sm:mb-3">{{footerData.name}}</h3>
+                <p class="text-secondary text-base sm:text-lg mb-1 sm:mb-2">{{footerData.role}}</p>
+                <p class="text-text2 mb-4 sm:mb-6 flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base">
+                    <i class="fas fa-map-marker-alt"></i> {{footerData.location}}
+                </p>
+                <p class="text-text2 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base px-4 sm:px-0">
+                    Especializado en desarrollo Fullstack con Laravel y Angular. 
+                    Apasionado por crear soluciones escalables y optimizar procesos mediante metodologías ágiles.
+                </p>
+                <button 
+                    (click)="scrollToTop()"
+                    class="bg-secondary text-primary px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg font-semibold hover:opacity-90 transition text-sm sm:text-base flex items-center gap-2 mx-auto sm:mx-0">
+                    <i class="fas fa-arrow-up"></i> Volver arriba
+                </button>
+            </div>
+            
+            <!-- Enlaces Rápidos -->
+            <div class="text-center sm:text-left">
+                <h4 class="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-secondary">Navegación</h4>
+                <ul class="space-y-2 sm:space-y-3">
+                    @for (link of quickLinks; track link.id) {
+                        <li>
+                            <button 
+                                (click)="scrollToSection(link.id)"
+                                class="text-text2 hover:text-secondary transition-colors flex items-center gap-2 group mx-auto sm:mx-0 text-sm sm:text-base">
+                                <i class="fas fa-chevron-right text-xs group-hover:translate-x-2 transition-transform"></i>
+                                {{link.name}}
+                            </button>
+                        </li>
+                    }
+                </ul>
+            </div>
+            
+            <!-- Redes Sociales -->
+            <div class="text-center sm:text-left">
+                <h4 class="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-secondary">Conéctate</h4>
+                <div class="space-y-3 sm:space-y-4">
+                    @for (social of socialLinks; track social.name) {
+                        <a 
+                            [href]="social.url" 
+                            target="_blank"
+                            class="flex items-center gap-3 text-text2 hover:text-secondary transition-all group justify-center sm:justify-start text-sm sm:text-base">
+                            <i [class]="social.icon + ' text-xl sm:text-2xl group-hover:scale-125 transition-transform'"></i>
+                            <span class="font-medium">{{social.name}}</span>
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="border-t border-secondary pt-6 sm:pt-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
+                <p class="text-text2 text-center sm:text-left text-xs sm:text-sm">{{footerData.copyright}}</p>
+                <p class="text-text2 text-center sm:text-right flex items-center gap-2 text-xs sm:text-sm">
+                    <i class="fas fa-code"></i> {{footerData.builtWith}}
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>

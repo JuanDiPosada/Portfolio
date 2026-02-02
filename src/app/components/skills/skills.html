@@ -1,0 +1,88 @@
+<!-- skills.html -->
+<section id="skills" class="min-h-screen py-12 sm:py-16 lg:py-20 bgDark">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-text2 mb-8 sm:mb-12 lg:mb-16">
+            Habilidades Técnicas
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <!-- Frontend -->
+            <div class="bg-text2 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h3 class="text-xl sm:text-2xl font-bold text-primary mb-6 flex items-center gap-3 justify-center md:justify-start">
+                    <i class="fas fa-palette text-2xl sm:text-3xl"></i> Frontend
+                </h3>
+                <div class="space-y-4 sm:space-y-6">
+                    @for (skill of technicalSkills.frontend; track skill.name) {
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="flex items-center gap-2 text-sm sm:text-base text-text font-semibold">
+                                    <i [class]="skill.icon"></i>
+                                    {{skill.name}}
+                                </span>
+                                <span class="text-sm sm:text-base text-green font-bold">{{skill.level}}%</span>
+                            </div>
+                            <div class="w-full bg-gray-300 rounded-full h-2 sm:h-2.5 overflow-hidden">
+                                <div 
+                                    class="bg-green h-2 sm:h-2.5 rounded-full transition-all duration-1000"
+                                    [style.width.%]="skill.level">
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Backend -->
+            <div class="bg-text2 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h3 class="text-xl sm:text-2xl font-bold text-primary mb-6 flex items-center gap-3 justify-center md:justify-start">
+                    <i class="fas fa-server text-2xl sm:text-3xl"></i> Backend
+                </h3>
+                <div class="space-y-4 sm:space-y-6">
+                    @for (skill of technicalSkills.backend; track skill.name) {
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="flex items-center gap-2 text-sm sm:text-base text-text font-semibold">
+                                    <i [class]="skill.icon"></i>
+                                    {{skill.name}}
+                                </span>
+                                <span class="text-sm sm:text-base text-green font-bold">{{skill.level}}%</span>
+                            </div>
+                            <div class="w-full bg-gray-300 rounded-full h-2 sm:h-2.5 overflow-hidden">
+                                <div 
+                                    class="bg-green h-2 sm:h-2.5 rounded-full transition-all duration-1000"
+                                    [style.width.%]="skill.level">
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Tools -->
+            <div class="bg-text2 p-6 sm:p-8 rounded-xl shadow-lg md:col-span-2 lg:col-span-1">
+                <h3 class="text-xl sm:text-2xl font-bold text-primary mb-6 flex items-center gap-3 justify-center md:justify-start">
+                    <i class="fas fa-tools text-2xl sm:text-3xl"></i> Herramientas & BD
+                </h3>
+                <div class="space-y-4 sm:space-y-6">
+                    @for (skill of technicalSkills.tools; track skill.name) {
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="flex items-center gap-2 text-sm sm:text-base text-text font-semibold">
+                                    <i [class]="skill.icon"></i>
+                                    {{skill.name}}
+                                </span>
+                                <span class="text-sm sm:text-base text-green font-bold">{{skill.level}}%</span>
+                            </div>
+                            <div class="w-full bg-gray-300 rounded-full h-2 sm:h-2.5 overflow-hidden">
+                                <div 
+                                    class="bg-green h-2 sm:h-2.5 rounded-full transition-all duration-1000"
+                                    [style.width.%]="skill.level">
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

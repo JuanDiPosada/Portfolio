@@ -1,0 +1,46 @@
+<!-- navbar.html -->
+<nav class="bgDark fixed w-full top-0 z-50 shadow-lg">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-4">
+            <!-- Logo -->
+            <div class="text-xl sm:text-2xl font-bold cursor-pointer" (click)="scrollToSection('hero')">
+                Juan Diego Cifuentes
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex gap-2">
+                @for (item of sections; track item.id) {
+                    <button 
+                        (click)="scrollToSection(item.id)" 
+                        class="px-4 py-2 hover:text-secondary transition-colors duration-300 font-medium">
+                        {{item.label}}
+                    </button>
+                }
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button 
+                (click)="toggleMenu()"
+                class="md:hidden text-text2 focus:outline-none">
+                @if (!isMenuOpen) {
+                    <i class="fas fa-bars text-2xl"></i>
+                } @else {
+                    <i class="fas fa-times text-2xl"></i>
+                }
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        @if (isMenuOpen) {
+            <div class="md:hidden pb-4 animate-fade-in">
+                @for (item of sections; track item.id) {
+                    <button 
+                        (click)="scrollToSection(item.id)" 
+                        class="block w-full text-left px-4 py-3 hover:bg-primary hover:text-secondary transition-colors">
+                        {{item.label}}
+                    </button>
+                }
+            </div>
+        }
+    </div>
+</nav>

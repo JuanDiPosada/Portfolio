@@ -1,0 +1,43 @@
+<!-- hero.html -->
+<section id="hero" class="min-h-screen flex items-center justify-center bgDark pt-16 sm:pt-20">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-base sm:text-lg md:text-xl mb-2 text-secondary animate-fade-in">
+            {{heroData.greeting}}
+        </p>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-3 sm:mb-4 animate-fade-in-up leading-tight">
+            {{heroData.name}}
+        </h1>
+        <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-secondary mb-2 sm:mb-3 animate-fade-in-up">
+            {{heroData.role}}
+        </h2>
+        <p class="text-base sm:text-lg md:text-xl text-green mb-4 sm:mb-6 font-semibold animate-fade-in-up">
+            {{heroData.subtitle}}
+        </p>
+        <p class="text-sm sm:text-base md:text-lg max-w-3xl mx-auto mb-3 sm:mb-4 leading-relaxed animate-fade-in-up px-4">
+            {{heroData.description}}
+        </p>
+        <p class="text-xs sm:text-sm md:text-base text-secondary mb-6 sm:mb-8 flex items-center justify-center gap-2">
+            <i class="fas fa-map-marker-alt"></i> {{heroData.location}}
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-10 animate-fade-in-up px-4">
+            <button 
+                (click)="scrollToProjects()" 
+                class="bg-secondary text-primary px-6 sm:px-8 py-3 rounded-lg font-semibold hover:opacity-90 hover:scale-105 transition-all duration-300 shadow-lg w-full sm:w-auto">
+                {{heroData.ctaText}}
+            </button>
+        </div>
+
+        <div class="flex flex-wrap gap-4 sm:gap-6 md:gap-8 justify-center animate-fade-in">
+            @for (social of socialLinks; track social.name) {
+                <a 
+                    [href]="social.url" 
+                    target="_blank" 
+                    class="flex flex-col items-center gap-2 hover:text-secondary transition-all duration-300 hover:scale-110 group">
+                    <i [class]="social.icon + ' text-2xl sm:text-3xl group-hover:scale-110 transition-transform'"></i>
+                    <span class="text-xs sm:text-sm">{{social.name}}</span>
+                </a>
+            }
+        </div>
+    </div>
+</section>
